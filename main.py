@@ -36,7 +36,7 @@ class MonApplication(QMainWindow):
         AstreC = dicoAstre[astreCible]
         if (AstreD.centre == AstreC.centre) :
             self.labelImpossible.setText("")
-            print(" Ok (lune -> lune ou planète ->planète)\n", astreDepart, "->", astreCible)
+            print(" Ok (lune -> lune ou planète -> planète)\n", astreDepart, "->", astreCible)
 
         elif(AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
             self.labelImpossible.setText("")
