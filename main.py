@@ -11,24 +11,12 @@ class MonApplication(QMainWindow):
         self.setWindowTitle("KSP trajectories")
         self.setWindowIcon(QIcon("interface/logo.png"))
         loadUi(localPath + "/interface/KSP.ui", self)
-        self.comboBoxAstreCible.addItem("Moho")
-        self.comboBoxAstreCible.addItem("Eve")
-        self.comboBoxAstreCible.addItem("Kerbin")
-        self.comboBoxAstreCible.addItem("Duna")
-        self.comboBoxAstreCible.addItem("Dres")
-        self.comboBoxAstreCible.addItem("Jool")
-        self.comboBoxAstreCible.addItem("Eeloo")
+        for e in astre:
+            self.comboBoxAstreCible.addItem(e)
+            self.comboBoxAstreDepart.addItem(e)
+
         self.comboBoxAstreCible.currentIndexChanged.connect(self.getComboBoxAstreCibleChanged)
-
-        self.comboBoxAstreDepart.addItem("Moho")
-        self.comboBoxAstreDepart.addItem("Eve")
-        self.comboBoxAstreDepart.addItem("Kerbin")
-        self.comboBoxAstreDepart.addItem("Duna")
-        self.comboBoxAstreDepart.addItem("Dres")
-        self.comboBoxAstreDepart.addItem("Jool")
-        self.comboBoxAstreDepart.addItem("Eeloo")
         self.comboBoxAstreDepart.currentIndexChanged.connect(self.getComboBoxAstreDepartChanged)
-
 
 
     def getComboBoxAstreCibleChanged(self):
@@ -42,7 +30,7 @@ class MonApplication(QMainWindow):
         return selected_item
 
 localPath = os.path.dirname(os.path.abspath(__file__))
-
+astre = ["**Moho**", "**Eve**", "Gilly (L)", "**Kerbin**", "Mune (L)", "Minmus (L)", "**Duna**", "Ike (L)", "**Dres**", "**Jool**", "Laythe (L)", "Vall (L)", "Tylo (L)", "Bob (L)", "Pol (L)", "**Eeloo**"]
 
 if __name__ == '__main__': 
     os.system("cls")
