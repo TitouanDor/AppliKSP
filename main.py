@@ -34,9 +34,13 @@ class MonApplication(QMainWindow):
         astreCible = self.getComboBoxAstreCibleChanged()
         AstreD = dicoAstre[astreDepart]
         AstreC = dicoAstre[astreCible]
-        if (AstreD.centre == AstreC.centre) or (AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
+        if (AstreD.centre == AstreC.centre) :
             self.labelImpossible.setText("")
-            print(" Ok\n", astreDepart, "->", astreCible)
+            print(" Ok (lune -> lune ou planète ->planète)\n", astreDepart, "->", astreCible)
+
+        elif(AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
+            self.labelImpossible.setText("")
+            print(" Ok (lune -> planète)\n", astreDepart, "->", astreCible)
         else: self.labelImpossible.setText(mess)
         
     
