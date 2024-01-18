@@ -36,13 +36,11 @@ class MonApplication(QMainWindow):
         AstreC = dicoAstre[astreCible]
         if (AstreD.centre == AstreC.centre) :
             self.labelImpossible.setText("")
-            print(" Ok (lune -> lune ou planète -> planète)\n", astreDepart, "->", astreCible)
             angleInterAstre(AstreD, AstreC)
 
         elif(AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
             self.labelImpossible.setText("")
-            print(" Ok (lune -> planète)\n", astreDepart, "->", astreCible)
-            angleInterAstre(AstreD, AstreC)
+            self.output.setText("Pour Lune de la Planète pas besoin d'angle")
         
         else: self.labelImpossible.setText(mess)
         
@@ -65,7 +63,6 @@ def angleInterAstre(AstreD, AstreC):
 
     angleEntreAstre = fonctionCalcul.pos_astre(periodeOrbite, AstreC.revo)
     fenetre.output.setText(str(round(angleEntreAstre, 2)) + "°")
-    print(angleEntreAstre)
 
 
 
