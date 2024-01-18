@@ -64,6 +64,7 @@ def angleInterAstre(AstreD, AstreC):
     periodeOrbite = fonctionCalcul.periode(demiGrandAxeOrbite)
 
     angleEntreAstre = fonctionCalcul.pos_astre(periodeOrbite, AstreC.revo)
+    fenetre.output.setText(str(round(angleEntreAstre, 2)) + "°")
     print(angleEntreAstre)
 
 
