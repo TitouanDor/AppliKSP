@@ -19,7 +19,7 @@ def excentricite(apoapse : int, periapse : int):
 def demi_grand_axe(e : float, apoapse = None, periapse = None):
     assert(type(e) == float), f"TypeError e must be float not {str(type(e))}"
     """
-    fonction renvoyant la longeur du demi-grand axe de l'ellipse nommé a
+    fonction renvoyant la longeur du demi-grand axe de l'ellipse nommé a (en metre)
 
     arguments :
         e : excentricité de l'ellipse
@@ -77,3 +77,5 @@ def periode_entre_pos(T1 : float, T2 : float) -> float:
     num = T1*T2
     denom = abs(T1 - T2)
     return num/denom
+
+def moyenne(x, y) -> float: return (x + y)/2
