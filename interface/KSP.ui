@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>750</height>
+    <width>171</width>
+    <height>323</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1100</width>
-    <height>750</height>
+    <width>171</width>
+    <height>323</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1100</width>
-    <height>750</height>
+    <width>171</width>
+    <height>323</height>
    </size>
   </property>
   <property name="baseSize">
@@ -38,10 +38,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>170</y>
+      <x>0</x>
+      <y>0</y>
       <width>171</width>
-      <height>291</height>
+      <height>281</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="LayoutSelection">
@@ -236,7 +236,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1100</width>
+     <width>171</width>
      <height>21</height>
     </rect>
    </property>
