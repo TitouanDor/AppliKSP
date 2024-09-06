@@ -4,6 +4,7 @@ from PyQt5.uic import loadUi
 import os
 from classAstre import Astre
 import fonctionCalcul
+import ctypes
 
 #####Classe#####
 class MonApplication(QMainWindow):
@@ -103,5 +104,8 @@ if __name__ == '__main__':
     os.system("cls")
     app = QApplication([]) 
     fenetre = MonApplication()
+    myappid = 'mycompany.myproduct.subproduct.version'
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    app.setWindowIcon(QIcon(localPath + "/interface/logo.png"))
     fenetre.show() 
     app.exec_()
