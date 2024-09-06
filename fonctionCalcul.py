@@ -79,3 +79,43 @@ def periode_entre_pos(T1 : float, T2 : float) -> float:
     return num/denom
 
 def moyenne(x, y) -> float: return (x + y)/2
+
+def airEllipse(demiPetitAxe : float, demiGrandAxe : int):
+    """
+    retourne l'air d'une ellipse'
+
+    arguments :
+        demiPetitAxe : demiPetitAxe de l'ellipse du transphère
+        demiGrandAxe : demiGrandAxe de l'ellipse du transphère
+    """
+    return math.pi*demiGrandAxe*demiPetitAxe
+
+def axeEllipse(e : float, apoapside : float):
+    """
+    fonction renvoyant la longeur du demi-grand axe de l'ellipse nommé a (en metre)
+
+    arguments :
+        e : excentricité de l'ellipse
+        apoapse : le point de l'orbite d'un objet céleste où la distance est maximale par rapport au foyer de l'orbite (en metre)
+    
+    variable local :
+        DGA : le demi grand axes de l'ellipse (en metre)
+        DPA : le demi petit axes de l'ellipse (en metre)
+    """
+
+    DGA = apoapside/(1 + e)
+    DPA = DGA*math.sqrt(1 - e**2)
+    return (DGA, DPA)
+
+def calculVitesse(GA,PA):
+    """
+    
+    """
+
+    air = airEllipse(PA, GA)
+    per = periode(GA)*426*24*60*60 #seconde
+    vitesse = air/per #m²/s
+
+
+
+

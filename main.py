@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QWidget
-from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtGui import QIcon
 from PyQt5.uic import loadUi
 import os
 from classAstre import Astre
@@ -23,26 +23,34 @@ class MonApplication(QMainWindow):
 
 
     def getComboBoxAstreCibleChanged(self):
-        return self.comboBoxAstreCible.currentText()
+        p = self.comboBoxAstreCible.currentText()
+        return p if p in astre else False
 
     def getComboBoxAstreDepartChanged(self):
-        return self.comboBoxAstreDepart.currentText()
+        p = self.comboBoxAstreDepart.currentText() 
+        print("---",p,"---")
+        return p if p in astre else False
     
     def verifBonAstreCentral(self):
-        mess = "Destination Impossible\nles deux astres n'orbitent\npas sur le même astre"
+        mess = "Destination Impossible\nles deux astres \nn'orbitentpas sur \nle même astre"
         astreDepart = self.getComboBoxAstreDepartChanged()
         astreCible = self.getComboBoxAstreCibleChanged()
-        AstreD = dicoAstre[astreDepart]
-        AstreC = dicoAstre[astreCible]
-        if (AstreD.centre == AstreC.centre) :
-            self.labelImpossible.setText("")
-            angleInterAstre(AstreD, AstreC)
+        if (astreCible != False) and (astreDepart != False):
+            AstreD = dicoAstre[astreDepart]
+            AstreC = dicoAstre[astreCible]
+            if (AstreD.centre == AstreC.centre) :
+                self.labelImpossible.setText("")
+                angleInterAstre(AstreD, AstreC)
 
-        elif(AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
-            self.labelImpossible.setText("")
-            self.output.setText("Pour Lune de la Planète pas besoin d'angle")
-        
-        else: self.labelImpossible.setText(mess)
+            elif(AstreC.centre == astreDepart) or (AstreD.centre == astreCible):
+                self.labelImpossible.setText("")
+                self.output.setText("Pour Lune de la Planète pas besoin d'angle")
+            
+            else: self.labelImpossible.setText(mess)
+
+        else: 
+            self.labelImpossible.setText("Veillez bien \nchoisir deux astres")
+            self.output.setText("")
         
     
 #####Fonction#####
